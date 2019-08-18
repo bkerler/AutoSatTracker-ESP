@@ -39,13 +39,13 @@ Also required are the following Arduino IDE libraries:
 
 ## Connections:
 
-Huzzah 3V  ..  3.3 V DC
-Huzzah EN  ..  system ground
-Huzzah 2   ..  GPS RX
-Huzzah 3   ..  GPS RX
-Huzzah 4   ..  PWM and DOF SDA
-Huzzah 5   ..  PWM and DOF SCL
-Huzzah GND ..  system ground
+- Huzzah 3V  ..  3.3 V DC
+- Huzzah EN  ..  system ground
+- Huzzah 2   ..  GPS RX
+- Huzzah 3   ..  GPS RX
+- Huzzah 4   ..  PWM and DOF SDA
+- Huzzah 5   ..  PWM and DOF SCL
+- Huzzah GND ..  system ground
 
 ## Development:
 
@@ -59,7 +59,7 @@ preprun performs both insertions. This approach also allows these html fies to b
 browser to check html errors, proper layout and local functionality without another burn cycle of the ESP.
 The web pages were tested in Chrome, Safari and Firefox on MacOS and iOS 12 and Edge on Windows 10.
 
-How it works:
+### How it works:
 
 The main loop() in AutoSetTracker.ino just polls for ethernet and GPS activity then updates the
 tracking. Webpage::checkEthernet() checks for a new client connection and replies depending on
@@ -69,7 +69,7 @@ In most of these, the NAME is the DOM id of the page element to display the VALU
 such as T_TLE, require special handling. Page controls also issue an XMLHttpRequest POST method with
 a new NAME=VALUE pair. These pairs are passed to each subsystem for action.
 
-Getting connected:
+### Getting connected:
 
 When first booted the ESP tries to connect to the last known WiFi station using the last IP it used.
 If this fails, the ESP changes to Access Point mode as SSID SatTracker. Connecting to this and
@@ -83,7 +83,7 @@ Let me know what you think.
 ecdowney@clearskyinstitute.com
 
 
-## Copyright notes:
+### Copyright notes:
 The P13 code as used here was written by Mark VandeWettering, K6HX, as part of his angst project. See
 his blog postings at http://brainwagon.org/the-arduino-n-gameduino-satellite-tracker:
 
