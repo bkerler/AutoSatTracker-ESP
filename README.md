@@ -161,3 +161,5 @@ and retains a bit of the object orientation that I imposed in that code.
 - 5v Battery Pack 10000mAH or 3S 50C 11.1v LiPo
 - Micro-USB cable
 
+### Pictures
+- https://twitter.com/viperbjk/status/1163145242574544897
