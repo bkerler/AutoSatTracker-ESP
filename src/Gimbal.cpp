@@ -39,7 +39,7 @@ Gimbal::Gimbal ()
 	Serial.println (F("PWM controller found ok"));
 
 	// instantiate PWM controller
-	pwm = new Adafruit_PWMServoDriver(GIMBAL_I2C_ADDR);
+	pwm = new Adafruit_PWMServoDriver(&Wire,GIMBAL_I2C_ADDR);
 	pwm->begin();
 	pwm->setPWMFreq(SERVO_FREQ);
 
@@ -229,13 +229,15 @@ void Gimbal::seekTarget (float& az_t, float& el_t, float& az_s, float& el_s)
 	const float MIN_ANGLE = 30;		// min acceptable move
 	const float MAX_CHANGE = 0.1;		// max fractional scale change
 	float az_move = azDist (prevstop_az, az_s);
-	if (fabs(az_move) >= MIN_ANGLE) {
+	if (fabs(az_move) >= MIN_ANGLE) 
+	{
 	    float new_az_scale = azmip->del_pos/az_move;
-	    if (fabs((new_az_scale - azmip->az_scale)/azmip->az_scale) < MAX_CHANGE) {
-		Serial.print (F("New Az scale\t"));
+	    if (fabs((new_az_scale - azmip->az_scale)/azmip->az_scale) < MAX_CHANGE) 
+	    {
+		    Serial.print (F("New Az scale\t"));
 		    Serial.print (azmip->az_scale); Serial.print (F("\t->\t"));
 		    Serial.println(new_az_scale);
-		azmip->az_scale = new_az_scale;
+		    azmip->az_scale = new_az_scale;
 	    }
 	}
 	float el_move = el_s - prevstop_el;
@@ -251,15 +253,26 @@ void Gimbal::seekTarget (float& az_t, float& el_t, float& az_s, float& el_s)
 
 
 	// move each motor to reduce error, but if at Az limit then swing back to near opposite limit
-	if (azmip->atmin) {
-	    // Serial.println (F("At Az Min"));
-	    setMotorPosition (best_azmotor, azmip->min + 0.8*(azmip->max - azmip->min));
-	} else if (azmip->atmax) {
-	    // Serial.println (F("At Az Max"));
-	    setMotorPosition (best_azmotor, azmip->min + 0.2*(azmip->max - azmip->min));
-	} else
-	    setMotorPosition (best_azmotor, azmip->pos + az_err*azmip->az_scale);
-	setMotorPosition (!best_azmotor, elmip->pos + el_err*elmip->el_scale);
+  	if (azmip->atmin) {
+  	     Serial.println (F("At Az Min"));
+  	    setMotorPosition (best_azmotor, azmip->min + 0.8*(azmip->max - azmip->min));
+  	} else if (azmip->atmax) {
+  	     Serial.println (F("At Az Max"));
+  	    setMotorPosition (best_azmotor, azmip->min + 0.2*(azmip->max - azmip->min));
+  	} else
+        Serial.print("AZ_ERR: ");
+        Serial.print(az_err);
+        Serial.print(" EL_ERR: ");
+        Serial.print(az_err);
+        Serial.print("\n");
+        if (az_err>GOOD_ERROR || az_err<-GOOD_ERROR)
+        {
+  	      setMotorPosition (best_azmotor, azmip->pos + az_err*azmip->az_scale);
+        }
+        if (el_err>GOOD_ERROR || el_err<-GOOD_ERROR)
+        {
+  	      setMotorPosition (!best_azmotor, elmip->pos + el_err*elmip->el_scale);
+        }
 
 }
 

@@ -15,7 +15,7 @@
 //
 // I've long wanted to redo the work in C++ so that I could port the code
 // to smaller processors including the Atmel AVR chips.  Bruce Robertson,
-// VE9QRP started the qrpTracker project to fufill many of the same goals,
+// VE9QRP started the qrpTracker project to fulfill many of the same goals,
 // but I thought that the code could be made more compact and more modular,
 // and could serve not just the embedded targets but could be of more
 // use for more general applications.  And, I like the BSD License a bit
@@ -25,6 +25,7 @@
 //
 
 #include "P13.h"
+#include "sun.h"
 
 // here are a bunch of constants that will be used throughout the
 // code, but which will probably not be helpful outside.
@@ -32,24 +33,15 @@
 // Updated with 2014 values from
 // http://www.amsat.org/amsat/articles/g3ruh/111.html
 
-static const float RE = 6378.137f ;
-static const float FL = 1.f/298.257224f ;
-static const float GM = 3.986E5f ;
-static const float J2 = 1.08263E-3f ;
-static const float YM = 365.25f ;
-static const float YT = 365.2421874f ;
-static const float WW = 2.f*M_PI/YT ;
-static const float WE = 2.f*M_PI+ WW ;
-static const float W0 = WE/86400.f ;
-static const float YG = 2014.f ;
-static const float G0 = 99.5828f ;
-static const float MAS0 = 356.4105f ;
-static const float MASD = 0.98560028f ;
-static const float EQC1 = 0.03340 ;
-static const float EQC2 = 0.00035 ;
-static const float INS = (23.4375f)*M_PI/180.0 ;
-static const float CNS = cos(INS) ;
-static const float SNS = sin(INS) ;
+static const float RE = 6378.137f ;       //WGS-84 Earth ellipsoid
+static const float FL = 1.f/298.257224f ; //WGS-84 Earth ellipsoid
+static const float GM = 3.986E5f ;        //Earth's Gravitational constant km^3/s^2
+static const float J2 = 1.08263E-3f ;     //2nd Zonal coeff, Earth's Gravity Field
+static const float YM = 365.25f ;         // Mean Year, days
+static const float YT = 365.2421874f ;    // Tropical year, days
+static const float WW = 2.f*M_PI/YT ;     // Earth's rotation rate, rads/whole day
+static const float WE = 2.f*M_PI+ WW;     // Earth's rotation rate, radians/day
+static const float W0 = WE/86400.f ;      // Earth's rotation rate, radians/sec
 
 
 float

@@ -1,0 +1,27 @@
+1. Read the datasheets on the Adafruit components – new features, new bug fixes, and stuff you overlooked may make your life a lot easier. For example, I was wiring the servo controller power using the VCC and GND terminals on the side. Once I took a good look at the datasheet, I realized the edge connectors include VCC, V, and GND terminals, so I just brought all five pins in from the pre-wired 5pin JST connectors I’d purchased. Simple, efficient soldering, no need to run extra jumpers.
+
+2. Work modular! Focus on one system at a time, making it as rock-solid as possible. Be prepared to rework sections. I went through two or three different power distribution schemes and a bunch of different wires and connectors before I settled on arrangements I was willing to keep in place. Keeping things modular means you can change your mind on one component with minimal impact to the rest. This also allows easy upgrades in the future.
+
+3. Be patient. There will be issues you didn’t think of originally that you’ll have to stop and solve. Better to go slow and focus on good build quality than to rush through and have lots of issues you have to track down and fix later. I was plagued with floating ground issues until I went back and re-worked my power distribution board and tied the grounds from the +5V and +6V feeds together *before* sending the feed to the Arduino.
+
+4. Don’t be afraid to go against the conventional wisdom after you do your research. Elwood’s design bypasses the Arduino’s built-in power regulator circuit, and a bunch of people who offered me advice said it was a bad design. Once I did more research, I realized that the dual buck converters he uses were in essence taking the place of the power regulator and reducing the voltage he needed to feed the Arduino.
+
+5. Get the pigtail you need for an external GPS antenna and get the antenna. It’s not that much more money, but it will save you HOURS of grief in being able to detect GPS from inside your lab and do all your testing more quickly.
+
+6. Once you have everything built, hook everything up and run through a full systems check, running through easy example sketches one by one – GPS, BNO055, servos. I have a little interactive servo control sketch I modified from one of the Adafruit examples that I’ll share on my website – it made it much easier when I was trying to track down servo control issues and during my final integration tests, made me much more confident in the results.
+
+7. If you can afford it, get a dedicated cheap tablet to use to control the tracker. You can easily download your latest TLEs to this tablet from home, and then connect it to the tracker’s WiFi network (assuming you use the router in the access point mode, which I did because otherwise connecting to the tracker became a matter of working through the router software configuration). I use a cheap Chinese Windows 10 tablet. Works fine.
+
+8. The tracker website is a little picky, so give it some time and don’t be afraid to reload the page to get things to work. Here’s what my sessions look like:
+  a. Use my tablet to download the latest Kep files I’m going to need.
+  b. Power-up the tracker and connect my tablet to the tracker’s WiFi network. I have this network remembered but I do not connect automatically. This is a lower priority in my WiFi list than my home networks, so when I power off at the end of my session the tablet automatically reconnects to home/well-known networks.
+  c. Open the browser and connect to the tracker. I added a HOSTS file entry and added the URL to my favorites bar, so I can easily connect on my tablet by simply tapping the bookmark.
+  d. Make sure that my servo mins/maxes are pulled in properly – they’re saved in the Arduino’s NVM, but if you’ve used the Arduino for another sketch or replaced it that doesn’t help. To do these, move the cursor to the field, type in the value, and press the Enter/Return key. WAIT FOR THE VALUE YOU JUST ENTERED TO SHOW UP TO THE LEFT OF THE ENTRY BOX.
+  e. Run a couple of manual values to the servos to make sure everything is talking and powered.
+  f. In the browsers, refresh (F5) my connection to the tracker.
+  g. Make sure the current values for the servos are blank but the mins/max bounds are showing. Also make sure the servo status is OK, not indicating that a servo is at min/max.
+  h. Now type in the name of the satellite, click Browse, and select the Keps file I downloaded in step a. Make sure the selected TLE shows up in the white entry box. Click Upload.
+  i. Wait until I’m almost ready for the pass, then click Start Tracking.
+  j. If anything ever looks janky, don’t be afraid to hit F5 to refresh. That sorts out most weirdness.
+
+9. After a few passes you’ll have a good idea how your tracker operates within your servo bounds – does it reach a boundary in the middle of a pass and have to reset? If so, this is where Elwood’s design REALLY shows its flexibility – you can arrange your tracker’s initial azimuth orientation to avoid this by making sure the satellite path will stay within the bounds -- remember, those bounds are *relative* to the tracker, not tied to an absolute heading. The tracker is smart enough to figure out where it’s pointing and do the right thing during the pass, with just a little help from you.

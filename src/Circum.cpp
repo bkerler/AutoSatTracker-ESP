@@ -5,7 +5,7 @@
 #include "Circum.h"
 
 // serial configuration for GPS
-#define	GPS_TX_PIN	(-1)			// none
+#define	GPS_TX_PIN	13			// not needed
 #define	GPS_RX_PIN	12
 #define	GPS_INVERT	false
 #define	GPS_BUFSIZE	512
@@ -18,9 +18,11 @@ Circum::Circum ()
 {
 	// create serial connection to GPS board
 	resetWatchdog();
-	ss = new SoftwareSerial (GPS_RX_PIN, GPS_TX_PIN, GPS_INVERT, GPS_BUFSIZE);
-	ss->begin(GPS_BAUD);
-
+	//ss = new SoftwareSerial (GPS_RX_PIN, GPS_TX_PIN, GPS_INVERT, GPS_BUFSIZE);
+	//ss->begin(GPS_BAUD);
+  ss = new SoftwareSerial ();
+  ss->begin(GPS_BAUD, GPS_RX_PIN, GPS_TX_PIN, SWSERIAL_8N1, false, 512);
+  
 	// create GPS parser
 	resetWatchdog();
 	GPS = new TinyGPS();

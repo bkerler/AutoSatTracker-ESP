@@ -83,8 +83,7 @@ Let me know what you think.
 ecdowney@clearskyinstitute.com
 
 
-
-=====================================================================================================
+## Copyright notes:
 The P13 code as used here was written by Mark VandeWettering, K6HX, as part of his angst project. See
 his blog postings at http://brainwagon.org/the-arduino-n-gameduino-satellite-tracker:
 
@@ -95,7 +94,6 @@ his blog postings at http://brainwagon.org/the-arduino-n-gameduino-satellite-tra
 / _` | ' \/ _` (_-<  _|
 \__,_|_||_\__, /__/\__|		Written by Mark VandeWettering, K6HX, 2011
           |___/        		brainwagon@gmail.com
-
 
 Angst is an application that I wrote for the Arduino and Gameduino. It
 is being distributed under the so-called "2-class BSD License", which I
@@ -115,8 +113,51 @@ implementation that is part of his embedded satellite tracker. My own
 code was ported from a quick and dirty Python implementation of my own,
 and retains a bit of the object orientation that I imposed in that code.
 
-=====================================================================================================
 
-Additional tools + modifications by B. Kerler (c) 2019
+## Additional tools + modifications by B. Kerler (c) 2019
 
+- Make sure to update both sun.h and wmm.h regulary
+
+- To update wmm.h, download WMM.COF from https://www.ngdc.noaa.gov/geomag/WMM/soft.shtml and use tools/wmmconverter.py
+  to convert to wmm.h. Next update needs to be done End of December 2020
+
+- The sun coefficients need to be updated in approx. 2030
+
+- If the servo moves back and forth on tracking due to measurement errors of the BNO055 sensor, make sure to mod GOOD_ERROR
+  to the error degree (currently 0.8 degree) in Gimbal.h
+
+- Before tracking, set the min and max ranges of the servo. For my servos (D645MW as Tilt and HS-785HB as Pan)
+  the values 900 as min and 1900 as max were just fine.
+
+## Components for building :
+
+### Needed :
+
+#### Amazon
+- Satellite-Tripod with 32mm Adaption (https://www.amazon.de/gp/product/B01B5LXBLW)
+- 1x Servo D645MW (https://www.amazon.de/gp/product/B01D37MH8Y) - Get a second one as these need to be modded and these can break easily :D
+- 2x LM2596 DC Converter for 3.3v and 6v (https://www.amazon.de/gp/product/B077VW4BTY). Only 1 needed if you use 5v instead of 6v
+- 1x PCA9685 12Bit PWM Servo-Driver (https://www.amazon.de/gp/product/B072N8G7Y9)
+- 1x Adafruit Feather HUZZAH mit ESP8266 WiFi/WLAN Development Board (https://www.amazon.de/Adafruit-Feather-Development-integriertem-Akku-Ladeger%C3%A4t/dp/B01BMRTULO)
+
+#### Servocity
+- 2x 1" Bore, Face Thru-hole Clamping Hub, 1.50" Pattern 	545354
+- 2x 1" Bore, Face Tapped Clamping Hub, 1.50" Pattern 		545352
+- 1x 0.375" Hub Spacer 	545380
+- 1x 0.250" Hub Spacer 	545376
+- 5x 90° Dual Side Mount E (2 pack) 	585596
+- 1x 9.00” Aluminum Channel 	585450
+- 1x Actobotics® Hardware Pack A 	632146
+- 1x CM-785HB-5-U Servo Gearbox 	CM-785HB-5-U
+- 1x SPT-400-5-25 Tilt System 	SPT-400-5-25
+- 1x 6.00” Aluminum Channel 	585446
+
+### Optional :
+- AWG 22 Cable
+- DC Adapter (https://www.amazon.de/gp/product/B00VG7FH0O/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1)
+- Power-Adapter 5v 4A for testing (https://www.amazon.de/gp/product/B07NSSD9RJ/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1)
+- Dupont Adapter Set for Servo and Tool Connection (https://www.amazon.de/gp/product/B07QX51F3B/ref=ppx_yo_dt_b_asin_title_o05_s01?ie=UTF8&psc=1)
+- Cable connectors (https://www.amazon.de/gp/product/B0758TKCRD/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&psc=1)
+- 5v Battery Pack 10000mAH or 3S 50C 11.1v LiPo
+- Micro-USB cable
 

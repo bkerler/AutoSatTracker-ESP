@@ -1222,7 +1222,7 @@ void Webpage::sendMainPage (WiFiClient client)
             "                            <input id='target_name' type='text' size='8' > </input> \r\n"
             "                            at \r\n"
             "                            <button onclick='querySite(event)' value='http://amsat.org/amsat/ftp/keps/current/nasa.all'>AMSAT</button> \r\n"
-            "                            <button onclick='querySite(event)' value='http://celestrak.com/NORAD/elements/amateur.txt' >Celestrak</button> \r\n"
+            "                            <button onclick='querySite(event)' value='http://www.celestrak.com/NORAD/elements/active.txt' >Celestrak</button> \r\n"
             "                            or in \r\n"
             "                            <input type='file' id='filesel' onchange='handleFileSelect(this.files[0])' /> \r\n"
         ));

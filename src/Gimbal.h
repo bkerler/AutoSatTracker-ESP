@@ -23,7 +23,7 @@ class Gimbal {
 	static const uint8_t MOT1_UNIT = 0;		// motor 1 I2C unit number
 	static const uint8_t MOT2_UNIT = 1;		// motor 2 I2C unit number
 	bool gimbal_found;				// whether PWM controller is present
-
+  static constexpr float GOOD_ERROR=0.8; //ERROR, which if below that value, we won't move the servo
 	// motor info
 	typedef struct {
 	    float az_scale, el_scale;			// az and el scale: steps (del usec) per degree

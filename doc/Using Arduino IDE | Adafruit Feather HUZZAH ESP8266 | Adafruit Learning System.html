@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<link rel="mask-icon" href="/assets/adafruit_favicon-d77f206e6cc65b40101b6e5b8987f7c35cb6a283ea73c0adad50c37f7347c61a.svg" color="#000000">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-0c79bd4bc582e6d4cf3afe417bd1e28120527c09d92c08a6464690c5bf6b85f4.ico" />
+<title>Using Arduino IDE | Adafruit Feather HUZZAH ESP8266 | Adafruit Learning System</title>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="JOoh+XUn2D8oriNq/BzuJ3FNUhoqvXfAAuVLGvBt9/nABmaunR+DQtj83iV9nKjW7Sd2Or1EWoLkaBEpvj+krw==" />
+<link rel="alternate" type="application/atom+xml" title="ATOM" href="/feed" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.rss" />
+<link rel="stylesheet" media="screen" href="/assets/application-beda4a20c45d66181062f0548dc59d4161e9736ca4c7dfbb3a410bbc1e901a3d.css" data-turbolinks-track="reload" />
+<script src="https://www.googletagmanager.com/gtag/js?id=GTM-TSRGT6T"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="turbolinks-cache-control" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"308175db61","applicationID":"54271218","transactionName":"cVZXRUFeWghRShtEVlVcSh5AWVkT","queueTime":1,"applicationTime":76,"agent":""}</script>
+<script>window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<meta name="guide-title" content="Adafruit Feather HUZZAH ESP8266">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adafruit">
+<meta name="twitter:title" content="Adafruit Feather HUZZAH ESP8266">
+<meta name="twitter:description" content="WiFi with built-in battery charging for IoT on-the-go!">
+<meta name="twitter:image:src" content="https://cdn-learn.adafruit.com/guides/images/000/001/170/medium800/smalldemo.jpg">
+<meta name="twitter:domain" content="https://learn.adafruit.com">
+<meta property="og:title" content="Adafruit Feather HUZZAH ESP8266" />
+<meta property="og:description" content="Feather is the new development board from Adafruit, and like it&#39;s namesake it is thin, light, and lets you fly! We designed Feather to be a new standard for portable microcontroller cores.
+This is the Adafruit Feather HUZZAH ESP8266 - our take on an &#39;all-in-one&#39; ESP8226 WiFi development boardwith built in USB and battery charging. Its an  ESP8266 WiFi module with all the extras you need, ready to rock! " />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://cdn-learn.adafruit.com/guides/images/000/001/170/medium800/smalldemo.jpg" />
+<meta property="og:url" content="https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide" />
+<meta property="og:site_name" content="Adafruit Learning System" />
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide",
+        "name": "Adafruit Feather HUZZAH ESP8266",
+        "description": "Feather is the new development board from Adafruit, and like it&#39;s namesake it is thin, light, and lets you fly! We designed Feather to be a new standard for portable microcontroller cores.
+This is the Adafruit Feather HUZZAH ESP8266 - our take on an &#39;all-in-one&#39; ESP8226 WiFi development boardwith built in USB and battery charging. Its an  ESP8266 WiFi module with all the extras you need, ready to rock! ",
+        "publisher": "Adafruit",
+        "datePublished": "2015-11-25T15:07:09-05:00",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://learn.adafruit.com/search?q={search_term}",
+          "query-input": "required name=search_term"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "lady ada"
+        }
+      }
+    </script>
+<!--[if lte IE 9]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+<script>
+    window.rails_env = 'production';
+  </script>
+<script src="/packs/application-2f7fc29703b865ebe2a5.js" data-turbolinks-track="reload"></script>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://learn.adafruit.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://learn.adafruit.com/search?q={search_term}",
+        "query-input": "required name=search_term"
+      }
+    }
+  </script>
+</head>
+<body class="application pages show">
+<div id="outer-wrapper">
+<div id="inner-wrapper">
+<div id="messaging-wrapper" data-load="https://www.adafruit.com/api/multi_message.php"></div>
+<header id="adafruit-header">
+<div id="small-header">
+<div class="first-row">
+<div class="row-content">
+<a id="small-header-menu-button" class="menu-link" href="#small-header-nav">
+<i class="fa fa-bars"> </i>
+</a>
+<div class="small-header-logo">
+<a href="https://www.adafruit.com">
+<img id="small-logo" height="50" width="50" alt="Adafruit Logo" title="Adafruit Logo" src="/logos/adafruit_logo_small.png?3632036593380330983" />
+</a> </div>
+<a class="small-header-cart" href="https://www.adafruit.com/shopping_cart">
+<span class="small-cart-count">0</span>
+<i class="fa fa-shopping-cart"></i>
+</a> </div>
+</div>
+<div class="second-row">
+<div id="small-search-wrapper">
+<div id="small-search-inner-wrapper">
+<form action="https://learn.adafruit.com/search" method="get">
+<label for="mobile-search" style="display:none;">Search</label>
+<input id="mobile-search" type="text" name="q" placeholder="Search Adafruit" />
+<i class="fa fa-search"></i>
+</form>
+</div>
+</div>
+</div>
+<nav id="small-header-nav">
+<div class="block">
+<ul>
+<li>
+<a href="https://www.adafruit.com/categories">SHOP</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com">LEARN</a>
+</li>
+<li>
+<a href="https://blog.adafruit.com">BLOG</a>
+</li>
+<li>
+<a href="https://forums.adafruit.com">FORUMS</a>
+</li>
+<li>
+<a href="https://www.youtube.com/adafruit">VIDEOS</a>
+</li>
+<li>
+<a href="https://io.adafruit.com">IO</a>
+</li>
+<li>
+<a href="/users/sign_in">SIGN IN</a>
+</li>
+<li>
+<a class="close-btn" id="small-nav-close-button" href="#top">CLOSE MENU</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div id="large-header">
+<div class="first-row">
+<div class="row-content">
+<ul class="application-links">
+<li><a href="https://www.adafruit.com">Shop</a></li>
+<li class="selected"><a href="https://learn.adafruit.com">Learn</a></li>
+<li><a href="https://blog.adafruit.com">Blog</a></li>
+<li><a href="https://forums.adafruit.com">Forums</a></li>
+<li><a href="https://www.youtube.com/adafruit">Videos</a></li>
+<li><a href="https://www.adabox.com">Adabox</a></li>
+<li><a href="https://io.adafruit.com">IO</a></li>
+</ul>
+<div id="account">
+<span class="sign-out"><a href="/users/sign_in">Sign In</a></span>
+<div class="cart">
+<a href="https://www.adafruit.com/shopping_cart">
+<i class="fa fa-shopping-cart"></i> 0
+</a> </div>
+</div>
+</div>
+</div>
+<div class="second-row">
+<div class="row-content">
+<div class="left-content">
+<div id="logo">
+<a href="https://www.adafruit.com">
+<img alt="Adafruit Logo" title="Adafruit Logo" src="/logos/adafruit_logo_small.png?3632036593380330983" />
+</a> </div>
+<ul class="main-nav-links">
+<li class="dropdown with-overlay">
+<div class="dropdown-label">Explore & Learn</div>
+<div class="dropdown-container">
+<div class="dropdown-content">
+<div class="flyouts">
+<div class="flyout">
+<div class="container">
+<div class="flyout-content row">
+<div class="column col-lg-6 col-md-6 col-sm-6">
+<div class="title categories">
+GUIDE CATEGORIES <br class="hidden-lg"><a href="/search">(SEE ALL 1953)</a>
+</div>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+<ul class="links categories">
+<li><a href="https://learn.adafruit.com/category/adabox">ADABOX (56)</a></li>
+<li><a href="https://learn.adafruit.com/category/adafruit-products">ADAFRUIT PRODUCTS (306)</a></li>
+<li><a href="https://learn.adafruit.com/category/arduino">ARDUINO COMPATIBLES (403)</a></li>
+<li><a href="https://learn.adafruit.com/category/breakout-boards">BREAKOUT BOARDS (160)</a></li>
+<li><a href="https://learn.adafruit.com/category/circuit-playground">CIRCUIT PLAYGROUND (257)</a></li>
+<li><a href="https://learn.adafruit.com/category/circuitpython">CIRCUITPYTHON (221)</a></li>
+<li><a href="https://learn.adafruit.com/category/collins-lab">COLLIN&#39;S LAB (8)</a></li>
+<li><a href="https://learn.adafruit.com/category/components">COMPONENTS (113)</a></li>
+<li><a href="https://learn.adafruit.com/category/community-support">COMMUNITY SUPPORT (27)</a></li>
+<li><a href="https://learn.adafruit.com/category/customer-projects">CUSTOMER &amp; PARTNER PROJECTS (36)</a></li>
+<li><a href="https://learn.adafruit.com/category/development-boards">DEVELOPMENT BOARDS (57)</a></li>
+<li><a href="https://learn.adafruit.com/category/educators">EDUCATORS (50)</a></li>
+<li><a href="https://learn.adafruit.com/category/el">EL WIRE/TAPE/PANEL (13)</a></li>
+<li><a href="https://learn.adafruit.com/category/feather">FEATHER (200)</a></li>
+<li><a href="https://learn.adafruit.com/category/hacks">HACKS (63)</a></li>
+<li><a href="https://learn.adafruit.com/category/internet-of-things-iot">INTERNET OF THINGS - IOT (210)</a></li>
+</ul>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<ul class="links categories">
+<li><a href="https://learn.adafruit.com/category/lcds-and-displays">LCDS &amp; DISPLAYS (236)</a></li>
+<li><a href="https://learn.adafruit.com/category/leds">LEDS (387)</a></li>
+<li><a href="https://learn.adafruit.com/category/maker-business">MAKER BUSINESS (34)</a></li>
+<li><a href="https://learn.adafruit.com/category/micro-bit">MICRO:BIT (11)</a></li>
+<li><a href="https://learn.adafruit.com/category/microcontrollers">MICROCONTROLLERS (158)</a></li>
+<li><a href="https://learn.adafruit.com/category/programming">PROGRAMMING (265)</a></li>
+<li><a href="https://learn.adafruit.com/category/projects">PROJECTS (249)</a></li>
+<li><a href="https://learn.adafruit.com/category/raspberry-pi">RASPBERRY PI (364)</a></li>
+<li><a href="https://learn.adafruit.com/category/robotics">ROBOTICS &amp; CNC (86)</a></li>
+<li><a href="https://learn.adafruit.com/category/sensors">SENSORS (384)</a></li>
+<li><a href="https://learn.adafruit.com/category/tools">TOOLS (69)</a></li>
+<li><a href="https://learn.adafruit.com/category/wearables">WEARABLES (238)</a></li>
+<li><a href="https://learn.adafruit.com/category/3d-printing">3D PRINTING (315)</a></li>
+<li><a href="https://learn.adafruit.com/category/crickit">CRICKIT (52)</a></li>
+<li><a href="https://learn.adafruit.com/category/makecode">MAKECODE (153)</a></li>
+<li><a href="https://learn.adafruit.com/category/trellis">TRELLIS (32)</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="column col-lg-3 col-md-3 col-sm-3">
+<div class="title new">
+NEW GUIDES <br class="hidden-lg"><a href="https://learn.adafruit.com/guides/latest">(SEE ALL 96)</a>
+</div>
+<ul class="links new">
+<li>
+<a href="https://learn.adafruit.com/circuitpython-feather-ble-neopixel-hat"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/659/medium310thumb/thumb-loop.gif?1565718059" alt="CircuitPython BLE Controlled NeoPixel Hat" /></a>
+<a href="https://learn.adafruit.com/circuitpython-feather-ble-neopixel-hat" class="name">CIRCUITPYTHON BLE CONTROLLED NEOPIXEL HAT</a>
+<div class="clear"></div>
+</li>
+<li>
+<a href="https://learn.adafruit.com/gone-fishing-game"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/658/medium310thumb/FISHING_ANIM.gif?1565650823" alt="Go Fishing with Rotary Encoders" /></a>
+<a href="https://learn.adafruit.com/gone-fishing-game" class="name">GO FISHING WITH ROTARY ENCODERS</a>
+<div class="clear"></div>
+</li>
+<li>
+<a href="https://learn.adafruit.com/creating-slideshows-in-circuitpython"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/657/medium310thumb/slideshow-demo.gif?1565619851" alt="Creating Slideshows in CircuitPython" /></a>
+<a href="https://learn.adafruit.com/creating-slideshows-in-circuitpython" class="name">CREATING SLIDESHOWS IN CIRCUITPYTHON</a>
+<div class="clear"></div>
+</li>
+<li>
+<a href="https://learn.adafruit.com/adafruit-1-3-and-1-54-240-x-240-wide-angle-tft-lcd-displays"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/652/medium310/1.54-inch-ips-tft-adabot-close-up.jpg?1565051515" alt="Adafruit 1.3&quot; and 1.54&quot; 240x240 Wide Angle TFT LCD Displays" /></a>
+<a href="https://learn.adafruit.com/adafruit-1-3-and-1-54-240-x-240-wide-angle-tft-lcd-displays" class="name">ADAFRUIT 1.3&quot; AND 1.54&quot; 240X240 WIDE ANGLE TFT LCD DISPLAYS</a>
+<div class="clear"></div>
+</li>
+</ul>
+</div>
+<div class="column col-lg-3 col-md-3 col-sm-3">
+<div class="title featured">
+FEATURED GUIDES <br class="hidden-lg"><a href="https://learn.adafruit.com/guides/featured">(SEE ALL 36)</a>
+</div>
+<ul class="links featured">
+<li>
+<a href="https://learn.adafruit.com/spinning-disc-step-sequencer"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/351/medium310thumb/disc_seq.gif?1547060866" alt="Spinning Disc Step Sequencer" /></a>
+<a href="https://learn.adafruit.com/spinning-disc-step-sequencer" class="name">SPINNING DISC STEP SEQUENCER</a>
+<div class="clear"></div>
+</li>
+<li>
+<a href="https://learn.adafruit.com/cartoon-network-makecode-garnets-gauntlets-from-steven-universe"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/382/medium310/IMG_3831_2k.jpg?1549048090" alt="Cartoon Network MakeCode: Garnet&#39;s Gauntlets from Steven Universe" /></a>
+<a href="https://learn.adafruit.com/cartoon-network-makecode-garnets-gauntlets-from-steven-universe" class="name">CARTOON NETWORK MAKECODE: GARNET&#39;S GAUNTLETS FROM STEVEN UNIVERSE</a>
+<div class="clear"></div>
+</li>
+<li>
+<a href="https://learn.adafruit.com/cpx-musical-glove"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/469/medium310thumb/CPXMusicalGlove.gif?1554158842" alt="Circuit Playground Musical Glove" /></a>
+<a href="https://learn.adafruit.com/cpx-musical-glove" class="name">CIRCUIT PLAYGROUND MUSICAL GLOVE</a>
+<div class="clear"></div>
+</li>
+<li>
+<a href="https://learn.adafruit.com/epaper-weather-station"><img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/554/medium310/weather1.jpg?1558644366" alt="eInk / ePaper Weather Station" /></a>
+<a href="https://learn.adafruit.com/epaper-weather-station" class="name">EINK / EPAPER WEATHER STATION</a>
+<div class="clear"></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="right-content">
+<div class="search-wrapper">
+<form action="/search" method="get">
+<label for="search" style="display:none;">Search</label>
+<input id="search" type="text" name="q" autocomplete="off" data-page="" data-app-id="W9DMM4OTH0" data-app-key="e613bcda3453b9ef887e2724362f9e57" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com" />
+<i class="fa fa-search"></i>
+<input type="submit" style="visibility: hidden; position: fixed;">
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div id="main-content">
+<div id="page-wrapper" class="">
+<article id="content-wrapper" class="double-sidebar-layout" data-page-id="6514" data-guide-id="1170">
+<div class="content">
+<div class="sidebar-left-wrapper">
+<div class="sidebar-left-content" data-clampedwidth=".sidebar-left-wrapper">
+<nav class="sidebar-left">
+<div class="title-bar">
+<div class="image-container">
+<img class="image-preview" data-error="/assets/missing%2Fmissing.png" src="https://cdn-learn.adafruit.com/guides/cropped_images/000/001/170/medium640/smalldemo.jpg?1520543713" />
+</div>
+<div class="title">
+<h1><a href="/adafruit-feather-huzzah-esp8266/overview">Adafruit Feather HUZZAH ESP8266</a></h1>
+<span class="page-tagline"><a href="/adafruit-feather-huzzah-esp8266/overview">WiFi with built-in battery charging for IoT on-the-go!</a></span>
+</div>
+</div>
+<ul class="page-parent nav">
+<li class='parent  '>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/overview">Overview</a>
+</li>
+<li class='parent  '>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/pinouts">Pinouts</a>
+</li>
+<li class='parent  '>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/assembly">Assembly</a>
+</li>
+<li class='parent  '>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/power-management">Power Management</a>
+</li>
+<li class='parent  '>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/using-nodemcu-lua">Using NodeMCU Lua</a>
+</li>
+<li class='parent  active'>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/using-arduino-ide">Using Arduino IDE</a>
+</li>
+<li class='parent  '>
+<a href="https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html" class="published">Using MicroPython <i class="fa fa-external-link"></i></a>
+</li>
+<li class='parent  '>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/downloads">Downloads</a>
+</li>
+<li class='parent  '>
+<a class="published" href="/adafruit-feather-huzzah-esp8266/faq">ESP8266 F.A.Q.</a>
+</li>
+<li class="single-page-spacer"></li>
+<li class="single-page-link ">
+<a href="/adafruit-feather-huzzah-esp8266/featured_products">Featured Products</a>
+</li>
+<li class="single-page-link"><a href="/adafruit-feather-huzzah-esp8266?view=all">Single Page</a></li>
+<li><a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-feather-huzzah-esp8266.pdf?timestamp=1565806948">Download PDF</a></li>
+</ul>
+</nav>
+<header class="sidebar-meta hidden-xs">
+<h4>Contributors</h4>
+<div><a href="/users/adafruit2">lady ada</a></div>
+</header>
+<header class="sidebar-meta hidden-xs">
+<a class="feedback-link" title="Feedback? Corrections?" rel="nofollow" data-remote="true" data-method="get" href="/pages/6514/settings_modal">
+Feedback? Corrections?
+</a> </header>
+</div>
+</div>
+<div class="main-content">
+<div id="categories">
+<span class="category ">
+<a href="/category/adafruit-products">ADAFRUIT PRODUCTS</a>
+</span>
+<span id="guide-favorite">
+<a class="favorites-link category right red" title="Favorite this guide?" data-toggle="tooltip" data-placement="left" data-remote="true" rel="nofollow" data-method="post" href="/guides/1170/favorites.js">
+<i class="fa fa-heart-o"></i>
+</a></span>
+</div>
+<div class="page-title-wrapper">
+<h1 class="headline">
+<span id="using-arduino-ide">Using Arduino IDE</span>
+</h1>
+<div class="author">by
+<a href="/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="page-content">
+<div class="">
+<div class="row-fluid build-image">
+<a href="/assets/28685">
+<img class="28685-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/028/685/medium260/adafruit_products_2821_top_02_ORIG.jpg?1448333324 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/685/medium640/adafruit_products_2821_top_02_ORIG.jpg?1448333324 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/685/medium800/adafruit_products_2821_top_02_ORIG.jpg?1448333324 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/685/large1024/adafruit_products_2821_top_02_ORIG.jpg?1448333324 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/028/685/medium800/adafruit_products_2821_top_02_ORIG.jpg?1448333324" alt="adafruit_products_2821_top_02_ORIG.jpg" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>While the Feather HUZZAH ESP8266 comes pre-programmed with NodeMCU's Lua interpretter, you don't have to use it! Instead, you can use the Arduino IDE which may be more familar. <strong>This will write directly to the firmware, erasing the NodeMCU firmware</strong>, <a href="https://github.com/nodemcu/nodemcu-flasher">so if you want to go back to Lua, use the flasher to re-install it</a></p>
+<p><em><a href="http://www.esp8266.com/">Don't forget to visit esp8266.com for the latest and greatest in ESP8266 news, software and gossip!</a></em></p>
+<p>In order to upload code to the ESP8266 and use the serial console, connect any data-capable micro USB cable to the Feather HUZZAH and the other side to your computer's USB port.</p>
+<p>Don't forget you will also need to install the SiLabs CP2104 Driver:</p>
+</div>
+<div id="element-2720739" class="button-element" data-github-release="">
+<a href="http://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" class="btn btn-large btn-block btn-primary" target="_self" data-zip-folder="" type="button">Click here to download the CP2104 USB Driver</a>
+</div>
+<div class="row-fluid build-text">
+<p>On Mac OS 10.13 and higher, in addition to installing, you will have to give the CP2104 kernel driver permission to load. You can find out if you need to give additional permission by visiting your Security &amp; Privacy settings system preferences screen after installing and looking for the message that says, 'System software from developer "SiLabs" was blocked from loading', like in the picture below.</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/62133">
+<img class="62133-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/062/133/medium260/adafruit_products_allow-silabs-kernel-driver.png?1537382826 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/133/medium640/adafruit_products_allow-silabs-kernel-driver.png?1537382826 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/133/medium800/adafruit_products_allow-silabs-kernel-driver.png?1537382826 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/133/large1024/adafruit_products_allow-silabs-kernel-driver.png?1537382826 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/062/133/medium800/adafruit_products_allow-silabs-kernel-driver.png?1537382826" alt="adafruit_products_allow-silabs-kernel-driver.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>To allow the driver to load, click the lock icon, enter your password, and click "Allow" next to the warning message. After that, you may have to restart your computer before following the steps below and connecting to your Huzzah in the Arduino app.</p>
+</div>
+<div class="element element element element element element element element element element element element element element element element element element element element element element element row-fluid build-alert alert-warning">
+<div class="alert">
+<i class='fa fa-exclamation-circle'></i>
+If you are using Mac OS 10.12.6 (Sierra) and you cannot upload with the latest Mac OS VCP driver, please try the legacy v4 driver below. Note you will need to uninstall the v5 driver using uninstall.sh (in the driver package)
+</div>
+</div>
+<div id="element-2720741" class="button-element" data-github-release="">
+<a href="http://community.silabs.com/t5/Interface-Knowledge-Base/Legacy-OS-Software-and-Driver-Packages/ta-p/182585" class="btn btn-large btn-block btn-primary tour-tour-element tour-tour-0-element" target="_self" data-zip-folder="" type="button">Download the CP2104 Legacy USB Driver</a>
+</div>
+<div class="row-fluid build-text">
+<h1>
+<div class="anchor-anchor">
+<a href="#install-the-arduino-ide-1-dot-6-8-or-greater-6-9" class="anchor-link"><span class="fa fa-link"></span></a><span id="install-the-arduino-ide-1-dot-6-8-or-greater-6-9" class="anchor-link-target"></span><span id="install-the-arduino-ide-1-dot-6-8-or-greater-6-9" class="anchor-link-target"></span>
+</div>Install the Arduino IDE 1.6.8 or greater</h1>
+<p><a href="http://www.arduino.cc/en/Main/Software">Download Arduino IDE from Arduino.cc (1.6.8 or greater)</a> from Arduino.cc</p>
+<p>The latest is usually the best</p>
+</div>
+<div class="row-fluid build-text">
+<h2>
+<div class="anchor-anchor">
+<a href="#install-the-esp8266-board-package-6-10" class="anchor-link"><span class="fa fa-link"></span></a><span id="install-the-esp8266-board-package-6-10" class="anchor-link-target"></span><span id="install-the-esp8266-board-package-6-10" class="anchor-link-target"></span>
+</div>Install the ESP8266 Board Package</h2>
+<p>Enter <code> http://arduino.esp8266.com/stable/package_esp8266com_index.json</code> into <em>Additional Board Manager URLs</em> field in the Arduino v1.6.4+ preferences.</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/28673">
+<img class="28673-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/028/673/medium260/adafruit_products_Screen_Shot_2015-07-23_at_12.15.52_PM.png?1448246535 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/673/medium640/adafruit_products_Screen_Shot_2015-07-23_at_12.15.52_PM.png?1448246535 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/673/medium800/adafruit_products_Screen_Shot_2015-07-23_at_12.15.52_PM.png?1448246535 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/673/large1024/adafruit_products_Screen_Shot_2015-07-23_at_12.15.52_PM.png?1448246535 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/028/673/medium800/adafruit_products_Screen_Shot_2015-07-23_at_12.15.52_PM.png?1448246535" alt="adafruit_products_Screen_Shot_2015-07-23_at_12.15.52_PM.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p><a href="../../../../add-boards-arduino-v164">Visit our guide for how to add<strong> new boards to the Arduino 1.6.4+ IDE</strong> for more info about adding third party boards</a>.</p>
+</div>
+<div class="row-fluid build-text">
+<p> Next, use the <strong>Board manager</strong> to install the ESP8266 package.</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/28674">
+<img class="28674-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/028/674/medium260/adafruit_products_Screen_Shot_2015-07-23_at_12.20.12_PM.png?1448246565 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/674/medium640/adafruit_products_Screen_Shot_2015-07-23_at_12.20.12_PM.png?1448246565 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/674/medium800/adafruit_products_Screen_Shot_2015-07-23_at_12.20.12_PM.png?1448246565 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/674/large1024/adafruit_products_Screen_Shot_2015-07-23_at_12.20.12_PM.png?1448246565 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/028/674/medium800/adafruit_products_Screen_Shot_2015-07-23_at_12.20.12_PM.png?1448246565" alt="adafruit_products_Screen_Shot_2015-07-23_at_12.20.12_PM.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="element row-fluid build-alert alert-warning">
+<div class="alert">
+<i class='fa fa-exclamation-circle'></i>
+If you want to use this board with Adafruit IO Arduino - make sure you're on version 2.5.1 or ABOVE.
+</div>
+</div>
+<div class='markdown-element'>
+<div class='markdown-html'>
+<p>After the install process, you should see that esp8266 package is marked INSTALLED. Close the Boards Manager window once the install process has completed.</p>
+</div>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/35028">
+<img class="35028-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/035/028/medium260/adafruit_products_adafruit_io_Screen_Shot_2016-08-16_at_11.11.33_AM.png?1471914574 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/035/028/medium640/adafruit_products_adafruit_io_Screen_Shot_2016-08-16_at_11.11.33_AM.png?1471914574 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/035/028/medium800/adafruit_products_adafruit_io_Screen_Shot_2016-08-16_at_11.11.33_AM.png?1471914574 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/035/028/large1024/adafruit_products_adafruit_io_Screen_Shot_2016-08-16_at_11.11.33_AM.png?1471914574 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/035/028/medium800/adafruit_products_adafruit_io_Screen_Shot_2016-08-16_at_11.11.33_AM.png?1471914574" alt="adafruit_products_adafruit_io_Screen_Shot_2016-08-16_at_11.11.33_AM.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<h1>
+<div class="anchor-anchor">
+<a href="#setup-esp8266-support-6-18" class="anchor-link"><span class="fa fa-link"></span></a><span id="setup-esp8266-support-6-18" class="anchor-link-target"></span><span id="setup-esp8266-support-6-18" class="anchor-link-target"></span>
+</div>Setup ESP8266 Support</h1>
+<p>When you've restarted, select <strong>Adafruit Feather HUZZAH ESP8266  </strong>from the Tools-&gt;Board dropdown</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/53351">
+<img class="53351-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/053/351/medium260/adafruit_products_featherhuzzah.png?1524842640 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/053/351/medium640/adafruit_products_featherhuzzah.png?1524842640 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/053/351/medium800/adafruit_products_featherhuzzah.png?1524842640 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/053/351/large1024/adafruit_products_featherhuzzah.png?1524842640 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/053/351/medium800/adafruit_products_featherhuzzah.png?1524842640" alt="adafruit_products_featherhuzzah.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>80 MHz as the CPU frequency</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/32981">
+<img class="32981-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/032/981/medium260/adafruit_products_80mhz.png?1465933954 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/032/981/medium640/adafruit_products_80mhz.png?1465933954 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/032/981/medium800/adafruit_products_80mhz.png?1465933954 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/032/981/large1024/adafruit_products_80mhz.png?1465933954 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/032/981/medium800/adafruit_products_80mhz.png?1465933954" alt="adafruit_products_80mhz.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>You can keep the <strong>Flash Size</strong>at "4M (3M SPIFFS)</p>
+<p>For <strong>Upload Speed</strong>, select 115200 baud (You can also try faster baud rates, we were able to upload at a blistering 921600 baud but sometimes it fails &amp; you have to retry)</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/32982">
+<img class="32982-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/032/982/medium260/adafruit_products_baud.png?1465933999 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/032/982/medium640/adafruit_products_baud.png?1465933999 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/032/982/medium800/adafruit_products_baud.png?1465933999 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/032/982/large1024/adafruit_products_baud.png?1465933999 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/032/982/medium800/adafruit_products_baud.png?1465933999" alt="adafruit_products_baud.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>The matching COM port for your FTDI or USB-Serial cable</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/28678">
+<img class="28678-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/028/678/medium260/adafruit_products_com.png?1448246709 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/678/medium640/adafruit_products_com.png?1448246709 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/678/medium800/adafruit_products_com.png?1448246709 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/678/large1024/adafruit_products_com.png?1448246709 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/028/678/medium800/adafruit_products_com.png?1448246709" alt="adafruit_products_com.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>On a mac, you should look for the "SLAB_USBtoUART" port</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/62137">
+<img class="62137-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/062/137/medium260/adafruit_products_huzzah-USB-port-arduino.png?1537383052 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/137/medium640/adafruit_products_huzzah-USB-port-arduino.png?1537383052 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/137/medium800/adafruit_products_huzzah-USB-port-arduino.png?1537383052 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/137/large1024/adafruit_products_huzzah-USB-port-arduino.png?1537383052 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/062/137/medium800/adafruit_products_huzzah-USB-port-arduino.png?1537383052" alt="adafruit_products_huzzah-USB-port-arduino.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+
+<h1>
+<div class="anchor-anchor">
+<a href="#blink-test-6-28" class="anchor-link"><span class="fa fa-link"></span></a><span id="blink-test-6-28" class="anchor-link-target"></span><span id="blink-test-6-28" class="anchor-link-target"></span>
+</div>Blink Test</h1>
+<p>We'll begin with the simple blink test</p>
+<p>Enter this into the sketch window (and save since you'll have to)</p>
+</div>
+<div class="build-code code-element">
+<div class="download-code">
+<i class="fa fa-cloud-download"></i> Download:
+<a data-turbolinks="false" href="https://learn.adafruit.com/pages/6514/elements/2720759/download">
+file
+</a> <div class="code-copy-container">
+<a href="#" class="code-copy-button hidden-xs">Copy Code</a>
+</div>
+</div>
+<pre class="code-text-only" style="display: none;">void setup() {
+  pinMode(0, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(0, HIGH);
+  delay(500);
+  digitalWrite(0, LOW);
+  delay(500);
+}</pre>
+<pre class="prettyprint linenums">void setup() {
+  pinMode(0, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(0, HIGH);
+  delay(500);
+  digitalWrite(0, LOW);
+  delay(500);
+}</pre>
+</div>
+<div class="row-fluid build-text">
+<p>Now you can simply upload! The <strong>Feather HUZZAH</strong> has built in auto-reset that puts it into bootloading mode automagically</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/28679">
+<img class="28679-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/028/679/medium260/adafruit_products_espblink.png?1448246726 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/679/medium640/adafruit_products_espblink.png?1448246726 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/679/medium800/adafruit_products_espblink.png?1448246726 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/679/large1024/adafruit_products_espblink.png?1448246726 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/028/679/medium800/adafruit_products_espblink.png?1448246726" alt="adafruit_products_espblink.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>The sketch will start immediately - you'll see the LED blinking. Hooray!</p>
+</div>
+<div class="row-fluid build-text">
+<h1>
+<div class="anchor-anchor">
+<a href="#connecting-via-wifi-6-33" class="anchor-link"><span class="fa fa-link"></span></a><span id="connecting-via-wifi-6-33" class="anchor-link-target"></span><span id="connecting-via-wifi-6-33" class="anchor-link-target"></span>
+</div>Connecting via WiFi</h1>
+<p>OK once you've got the LED blinking, lets go straight to the fun part, connecting to a webserver. Create a new sketch with this code:</p>
+</div>
+<div class="build-code code-element">
+<div class="download-code">
+<i class="fa fa-cloud-download"></i> Download:
+<a data-turbolinks="false" href="https://learn.adafruit.com/pages/6514/elements/2720764/download">
+file
+</a> <div class="code-copy-container">
+<a href="#" class="code-copy-button hidden-xs">Copy Code</a>
+</div>
+</div>
+<pre class="code-text-only" style="display: none;">/*
+ *  Simple HTTP get webclient test
+ */
+
+#include &lt;ESP8266WiFi.h&gt;
+
+const char* ssid     = "yourssid";
+const char* password = "yourpassword";
+
+const char* host = "wifitest.adafruit.com";
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+
+  // We start by connecting to a WiFi network
+
+  Serial.println();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  
+  WiFi.begin(ssid, password);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");  
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+int value = 0;
+
+void loop() {
+  delay(5000);
+  ++value;
+
+  Serial.print("connecting to ");
+  Serial.println(host);
+  
+  // Use WiFiClient class to create TCP connections
+  WiFiClient client;
+  const int httpPort = 80;
+  if (!client.connect(host, httpPort)) {
+    Serial.println("connection failed");
+    return;
+  }
+  
+  // We now create a URI for the request
+  String url = "/testwifi/index.html";
+  Serial.print("Requesting URL: ");
+  Serial.println(url);
+  
+  // This will send the request to the server
+  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+               "Host: " + host + "\r\n" + 
+               "Connection: close\r\n\r\n");
+  delay(500);
+  
+  // Read all the lines of the reply from server and print them to Serial
+  while(client.available()){
+    String line = client.readStringUntil('\r');
+    Serial.print(line);
+  }
+  
+  Serial.println();
+  Serial.println("closing connection");
+}</pre>
+<pre class="prettyprint linenums">/*
+ *  Simple HTTP get webclient test
+ */
+
+#include &lt;ESP8266WiFi.h&gt;
+
+const char* ssid     = "yourssid";
+const char* password = "yourpassword";
+
+const char* host = "wifitest.adafruit.com";
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+
+  // We start by connecting to a WiFi network
+
+  Serial.println();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  
+  WiFi.begin(ssid, password);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");  
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+int value = 0;
+
+void loop() {
+  delay(5000);
+  ++value;
+
+  Serial.print("connecting to ");
+  Serial.println(host);
+  
+  // Use WiFiClient class to create TCP connections
+  WiFiClient client;
+  const int httpPort = 80;
+  if (!client.connect(host, httpPort)) {
+    Serial.println("connection failed");
+    return;
+  }
+  
+  // We now create a URI for the request
+  String url = "/testwifi/index.html";
+  Serial.print("Requesting URL: ");
+  Serial.println(url);
+  
+  // This will send the request to the server
+  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+               "Host: " + host + "\r\n" + 
+               "Connection: close\r\n\r\n");
+  delay(500);
+  
+  // Read all the lines of the reply from server and print them to Serial
+  while(client.available()){
+    String line = client.readStringUntil('\r');
+    Serial.print(line);
+  }
+  
+  Serial.println();
+  Serial.println("closing connection");
+}</pre>
+</div>
+<div class="row-fluid build-text">
+<p>Dont forget to update</p>
+<p><code>const char* ssid     = "yourssid";</code><br><code>const char* password = "yourpassword";</code></p>
+<p>to your access point and password, then upload the same way: get into bootload mode, then upload code via IDE</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/28680">
+<img class="28680-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/028/680/medium260/adafruit_products_wificlient.png?1448246786 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/680/medium640/adafruit_products_wificlient.png?1448246786 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/680/medium800/adafruit_products_wificlient.png?1448246786 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/680/large1024/adafruit_products_wificlient.png?1448246786 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/028/680/medium800/adafruit_products_wificlient.png?1448246786" alt="adafruit_products_wificlient.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>Open up the IDE serial console at 115200 baud to see the connection and webpage printout!</p>
+</div>
+<div class="row-fluid build-image">
+<a href="/assets/28681">
+<img class="28681-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/028/681/medium260/adafruit_products_consoleconnect.png?1448246805 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/681/medium640/adafruit_products_consoleconnect.png?1448246805 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/681/medium800/adafruit_products_consoleconnect.png?1448246805 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/028/681/large1024/adafruit_products_consoleconnect.png?1448246805 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="https://cdn-learn.adafruit.com/assets/assets/000/028/681/medium800/adafruit_products_consoleconnect.png?1448246805" alt="adafruit_products_consoleconnect.png" />
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>That's it, pretty easy!</p>
+<p>This page was just to get you started and test out your module. For more information, check out the<a href="https://github.com/esp8266/Arduino"> ESP8266 port github repository</a> for much more up-to-date documentation!</p>
+</div>
+</div>
+<div class="page-navigation">
+<a class="previous-page" href="/adafruit-feather-huzzah-esp8266/using-nodemcu-lua">
+<i class="fa fa-chevron-left"></i>USING NODEMCU LUA
+</a> <a class="next-page" href="/adafruit-feather-huzzah-esp8266/downloads">
+DOWNLOADS<i class="fa fa-chevron-right"></i>
+</a> <div class="clear"></div>
+</div>
+<span class="page-last-updated">
+This guide was first published on Nov 25, 2015. It was last
+updated on Nov 25, 2015.
+</span>
+<span class="page-last-updated">
+This page (Using Arduino IDE) was last updated on Aug 13, 2019.
+</span>
+</div>
+</div>
+<div class="sidebar-right-wrapper">
+<div class="sidebar-right-content">
+<div class="featured-products">
+<div class="product-wrapper">
+<a href="https://www.adafruit.com/product/2821">
+<div class="product-image">
+<img src="https://cdn-shop.adafruit.com/640x480/2821-05.jpg" alt="" height="233" class="img-responsive" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<div class="product-title">Adafruit Feather HUZZAH with ESP8266 - Loose Headers</div>
+<span class="product-price">$16.95</span>
+</div>
+</a> <div class="product-purchase-link">
+<a id="2821-product" class="product-buy btn-primary " data-pid="2821" data-qty="1" data-name="Adafruit Feather HUZZAH with ESP8266 - Loose Headers" href="https://www.adafruit.com/product/2821">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<a href="https://www.adafruit.com/product/2830">
+<div class="product-image">
+<img src="https://cdn-shop.adafruit.com/640x480/2830-00.jpg" alt="" height="233" class="img-responsive" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<div class="product-title">Stacking Headers for Feather - 12-pin and 16-pin female headers</div>
+<span class="product-price">$1.25</span>
+</div>
+</a> <div class="product-purchase-link">
+<a id="2830-product" class="product-buy btn-primary " data-pid="2830" data-qty="1" data-name="Stacking Headers for Feather - 12-pin and 16-pin female headers" href="https://www.adafruit.com/product/2830">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<a href="https://www.adafruit.com/product/1317">
+<div class="product-image">
+<img src="https://cdn-shop.adafruit.com/640x480/1317-00.jpg" alt="" height="233" class="img-responsive" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<div class="product-title">Lithium Ion Polymer Battery - 3.7v 150mAh</div>
+<span class="product-price">$5.95</span>
+</div>
+</a> <div class="product-purchase-link">
+<a id="1317-product" class="product-buy btn-primary " data-pid="1317" data-qty="1" data-name="Lithium Ion Polymer Battery - 3.7v 150mAh" href="https://www.adafruit.com/product/1317">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<a href="https://www.adafruit.com/product/2750">
+<div class="product-image">
+<img src="https://cdn-shop.adafruit.com/640x480/2750-00.jpg" alt="" height="233" class="img-responsive" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<div class="product-title">Lithium Ion Polymer Battery - 3.7v 350mAh</div>
+<span class="product-price">$6.95</span>
+</div>
+</a> <div class="product-purchase-link">
+<a id="2750-product" class="product-buy btn-primary " data-pid="2750" data-qty="1" data-name="Lithium Ion Polymer Battery - 3.7v 350mAh" href="https://www.adafruit.com/product/2750">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<a href="https://www.adafruit.com/product/1578">
+<div class="product-image">
+<img src="https://cdn-shop.adafruit.com/640x480/1578-00.jpg" alt="" height="233" class="img-responsive" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<div class="product-title">Lithium Ion Polymer Battery - 3.7v 500mAh</div>
+<span class="product-price">$7.95</span>
+</div>
+</a> <div class="product-purchase-link">
+<a id="1578-product" class="product-buy btn-primary " data-pid="1578" data-qty="1" data-name="Lithium Ion Polymer Battery - 3.7v 500mAh" href="https://www.adafruit.com/product/1578">Add to Cart</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div class="readable">
+<div class="related-guides-wrapper">
+<div class="guide-group-preview">
+<div class="group-preview-header">
+<h3>
+Related Guides
+</h3>
+</div>
+<div class="guide-group">
+<div class="guide-preview">
+<div class="image-container">
+<a href="/adafruit-io-home-security">
+<video class="video-preview" preload="auto" muted="muted" loop="loop" autoplay="autoplay" data-error="/assets/missing%2Fmissing.png">
+<source src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/156/medium640mp4/disarm_system.mp4?1536091415">
+<source src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/156/medium640webm/disarm_system.webm?1536091415" type="video/webm; codecs=vp8,vorbis">
+Your browser does not support the video tag.
+</video>
+<div class="tagline">
+Protect against intruders by building a security system for a cardboard smart home using Adafruit IO.
+</div>
+</a> </div>
+<div class="title">
+<a href="/adafruit-io-home-security">
+Adafruit IO Home: Security
+</a> </div>
+<div class="author">by
+<a href="/users/brubell">
+<span class="name">Brent Rubell</span>
+</a> </div>
+</div>
+<div class="guide-preview">
+<div class="image-container">
+<a href="/micropython-hardware-spi-devices">
+<img class="image-preview" data-error="/assets/missing%2Fmissing.png" src="https://cdn-learn.adafruit.com/guides/cropped_images/000/001/441/medium640/IMG_5162.jpg?1535126435" />
+<div class="tagline">
+Talk to SPI devices with MicroPython!
+</div>
+</a> </div>
+<div class="title">
+<a href="/micropython-hardware-spi-devices">
+MicroPython Hardware: SPI Devices
+</a> </div>
+<div class="author">by
+<a href="/users/tdicola">
+<span class="name">Tony DiCola</span>
+</a> </div>
+</div>
+<div class="guide-preview">
+<div class="image-container">
+<a href="/automatic-twitch-on-air-sign">
+<img class="image-preview" data-error="/assets/missing%2Fmissing.png" src="https://cdn-learn.adafruit.com/guides/cropped_images/000/001/253/medium640/IMG_4598.JPG?1515089962" />
+<div class="tagline">
+Know when your favorite streamer is twitchin&#39;
+</div>
+</a> </div>
+<div class="title">
+<a href="/automatic-twitch-on-air-sign">
+Automatic Twitch On-Air Sign
+</a> </div>
+<div class="author">by
+<a href="/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="guide-preview">
+<div class="image-container">
+<a href="/drone-claw">
+<video class="video-preview" preload="auto" muted="muted" loop="loop" autoplay="autoplay" data-error="/assets/missing%2Fmissing.png">
+<source src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/012/medium640mp4/hero-hover-loop.mp4?1526247910">
+<source src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/012/medium640webm/hero-hover-loop.webm?1526247910" type="video/webm; codecs=vp8,vorbis">
+Your browser does not support the video tag.
+</video>
+<div class="tagline">
+Build a flying claw with Circuit Playground and Makecode!
+</div>
+</a> </div>
+<div class="title">
+<a href="/drone-claw">
+Drone Claw
+</a> </div>
+<div class="author">by
+<a href="/users/pixil3d">
+<span class="name">Ruiz Brothers</span>
+</a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-spacer"></div>
+</div>
+<div class="modal fade" id="notify-modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<a href="#" class="close" data-dismiss="modal">×</a>
+<h5>OUT OF STOCK NOTIFICATION</h5>
+</div>
+<div class="modal-body">
+<p class="notify-modal-form-header"></p>
+<div class="notify-modal-products"></div>
+<form id="notify-modal-form" name="back_in_stock_notification">
+<p class="notify-modal-form-notice"></p>
+<div class="notify-modal-break"></div>
+<div class="form-group">
+<label class="inputLabel" for="name">YOUR NAME</label>
+<input type="text" size="25" maxlength="64" name="name" value="">
+</div>
+<div class="form-group">
+<label class="inputLabel" for="email">YOUR EMAIL</label>
+<input type="email" size="25" maxlength="96" name="email" value="">
+</div>
+<input type="hidden" name="notify_me" value="true">
+</form>
+<div id="notify-modal-success" style="display:none">
+<p>You have been successfully subscribed to the Notification List for this product and will therefore receive an e-mail from us when it is back in stock!</p>
+<p>For security reasons, an e-mail has been sent to you acknowledging your subscription. Please remember that this subscription will not result in you receiving any e-mail from us about anything other than the restocking of this item.</p>
+<p>If, for any reason, you would like to unsubscribe from the Notification List for this product you will find details of how to do so in the e-mail that has just been sent to you!</p>
+</div>
+</div>
+<div class="modal-footer">
+<a href="#" id="close-notify" style="display: none" data-dismiss="modal" data-target="#notify-modal">CLOSE</a>
+<a href="#" id="submit-notify" rel="nofollow" class="blue-button">NOTIFY ME</a>
+</div>
+</div>
+</div>
+</div>
+<div id="remote-modal"></div>
+</div>
+<footer id="adafruit-footer">
+<div id="footer-content">
+<div class="row">
+<div class=" col-lg-6 col-md-6 col-sm-4 col-xs-12">
+<nav>
+<ul>
+<li><a href="https://www.adafruit.com/contact_us">CONTACT</a></li>
+<li><a href="https://www.adafruit.com/support">SUPPORT</a>
+<li><a href="https://www.adafruit.com/distributors">DISTRIBUTORS</a></li>
+<li><a href="https://www.adafruit.com/educators">EDUCATORS</a></li>
+<li><a href="https://jobs.adafruit.com/">JOBS</a></li>
+<li><a href="https://www.adafruit.com/faq">FAQ</a></li>
+<li><a href="https://www.adafruit.com/shippinginfo/">SHIPPING &amp; RETURNS</a></li>
+<li><a href="https://www.adafruit.com/terms_of_service/">TERMS OF SERVICE</a></li>
+<li><a href="https://www.adafruit.com/privacy">PRIVACY &amp; LEGAL</a></li>
+<li><a href="https://www.adafruit.com/about">ABOUT US</a></li>
+</ul>
+</nav>
+<div id="footer-copyright">
+<a href="http://nytm.org/made-in-nyc/">ENGINEERED IN NYC</a> <span>Adafruit&nbsp;®</span>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-8 hidden-xs">
+<div id="footer-quote" class="">
+"The key to the future of the world is finding the optimistic stories and letting them be known"
+<span class="quote-author">- <a href="http://en.wikipedia.org/wiki/Pete_Seeger">Pete Seeger</a></span>
+</div>
+</div>
+<div id="footer-seals">
+<img class="img-responsive" src="/logos/seals_2x.jpg" />
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body>
+</html>

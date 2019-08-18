@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title>Autonomous Satellite Tracker</title>
+
+    <style>
+
+    body {
+	background-color: #334;
+	/*
+	background: url('IMG_0182.JPG');
+        background-size: cover;
+	background-repeat: no-repeat;
+	*/
+    }
+
+    h3 {
+	text-indent: 150px;
+	font-family: times;
+    }
+
+    p,li,h3 {
+	color:#eee;
+	font-family: times;
+    }
+
+    p,ul {
+	margin: 10px;
+    }
+
+    li {
+	margin: 2px;
+    }
+
+    a:link,a:visited {
+	color:#eee;
+    }
+
+    td {
+	vertical-align:top;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<h3>Autonomous Satellite Tracker</h3>
+
+<p>
+This page refers to my Autonomous Satellite Tracker article in the March/April 2016 QEX. All updates will be posted here.
+
+
+</p><table>
+    <tbody><tr>
+	<td>
+	    <p>
+		Supporting Material:
+	    </p>
+	    <ul>
+		<li>
+		    <a target="_black" href="http://www.clearskyinstitute.com/ham/AST/Downey.pdf">
+			Published article
+		    </a>
+		</li>
+
+		<li>
+		    <a target="_black" href="http://www.clearskyinstitute.com/ham/AST/AutoSatTracker.pdf">
+			Manuscript, updated after publication
+		    </a>
+		</li>
+
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/Downey-AST-Block%20diagram.pdf">Block diagram</a>
+		</li>
+
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/Downey-AST-Web%20interface.png">Screen shot of web interface</a>
+		</li>
+
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/AutoSatTracker-2016082822.zip">Arduino source code, Version 2016082822</a>
+		</li>
+
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/Print.cpp">Alternative to Print.cpp in core Arduino library</a>
+		</li>
+	    </ul>
+	</td>
+
+	<td style="width:30px">
+	</td>
+
+	<td>
+	    <p>
+		Images:
+	    </p>
+	    <ul>
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/IMG_0182.JPG">Operating</a> </li>
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/AutoSatTrack.mp4">Prototype movie</a> </li>
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/Downey-AST-Top%20photo.jpg">Controller close-up</a> </li>
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/Tripod-closeup.jpg">Tripod close-up</a> </li>
+		<li>Tilt servo close-ups:
+		    <a target="_black" href="http://www.clearskyinstitute.com/ham/AST/IMG_0195.JPG">#1</a>
+		    <a target="_black" href="http://www.clearskyinstitute.com/ham/AST/IMG_0196.JPG">#2</a>
+		</li>
+		<li>Pan servo close-ups:
+		    <a target="_black" href="http://www.clearskyinstitute.com/ham/AST/IMG_0186.JPG">#1</a>
+		    <a target="_black" href="http://www.clearskyinstitute.com/ham/AST/IMG_0198.JPG">#2</a>
+		</li>
+	    </ul>
+	</td>
+
+	<td>
+	    <p>
+		Notes:
+	    </p>
+
+	    <ul>
+
+		<li>
+		    Version 2016061704 fixes a problem that prevented entering values in Firefox and Android.
+		</li><li>
+		    Version 2016073023 fixes a problem that prevented downloading elements from AMSAT or
+		<br> Celestrak in Firefox and Android.
+		</li><li>
+		    Version 2016082822 fixes a problem with refraction near the horizon.
+		</li><li>
+		    I've added a closeup photo of the way I connected the tracker to a tripod. I bought a
+		    <br> small tripod and pulled the center post up through a channel then clamped to it. The
+		    <br>tripod post is 5/8" diameter. ServoCity part numbers: 3x 585548, 1x 585443, 1x 545360
+		    <br>and 2x 585596.
+		</li>
+		<li><a target="_black" href="http://www.clearskyinstitute.com/ham/AST/WA7DLG-tips.txt">Notes</a> from a builder, WA7DLG.
+		</li>
+
+	    </ul>
+	</td>
+    </tr>
+</tbody></table>
+
+<p>
+<span style="color:yellow">Update 2018 July 29: </span>
+The Tracker is now available using the
+<a target="_blank" href="https://www.adafruit.com/product/2821">ESP8266</a>
+processor, the same one used in my
+<a target="_blank" href="http://www.clearskyinstitute.com/ham/HamClock">HamClock</a>.
+This eliminates the need for the Arduino, ethernet shield and the TP-Link.
+The wiring diagram is now just this:
+</p><p>
+</p><center>
+<img style="background:white" src="Autonomous%20Satellite%20Tracker_files/AST-ESP.png">
+</center>
+<p>
+The wiring for the Servo controller, 9 DOF Sensor and tilt and pan servos is the same as in my
+original design. Note the change from 5 to 3.3 V supply for which the Huzzah EN
+is grounded. If you use a 5 V supply then leave EN disconnected.
+
+</p><p>
+The software is <a target="_blank" href="http://www.clearskyinstitute.com/ham/AST/AutoSatTracker-ESP-2018072919.zip">here</a>.
+Set up the Arduino IDE exactly the same as for my 
+<a target="_blank" href="http://www.clearskyinstitute.com/ham/HamClock">HamClock</a>
+project. You need the following libraries:
+
+    <a target="_blank" href="https://github.com/mikalhart/TinyGPS">TinyGPS</a>,
+    <a target="_blank" href="https://github.com/adafruit/Adafruit_BNO055/archive/master.zip">BNO055</a>,
+    <a target="_blank" href="https://github.com/adafruit/Adafruit_Sensor/archive/master.zip">Sensor</a>,
+    <a target="_blank" href="https://github.com/adafruit/Adafruit-PWM-Servo-Driver-Library">Servo</a>
+    and of course the
+    <a target="_blank" href="https://github.com/esp8266/Arduino">ESP Arduino port</a>.
+Other helpful links:
+<a target="_blank" href="https://learn.adafruit.com/adafruit-arduino-ide-setup/arduino-1-dot-6-x-ide">Arduino IDE</a>,
+<a target="_blank" href="https://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use?view=all">Arduino libraries</a> and
+<a target="_blank" href="https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide">ESP Huzzah</a>.
+
+
+</p><p>
+The Tracker functions exactly the same way as before except how it connects to the network.
+</p><ul>
+    <li> When the Tracker powers up it will try to connect to the last WiFi access point it last used and
+be at the same IP as before.
+    </li><li>If this fails, the Tracker creates its own open WiFi Access Point called "SatTrack".
+    </li><li>Connect to this AP then surf to 192.168.10.10.
+    </li><li>You should see a form where you can fill in the credentials for your WiFi and the network details
+you want assigned to the Tracker.
+     </li><li>When this is completed correctly, you then connect back to your normal WiFi AP and you can
+surf to the Tracker at the IP you specified in the form.
+</li></ul>
+
+<p>
+Let me know what you think!
+
+</p><p>
+<i>73</i>, Elwood Downey, <a href="http://www.clearskyinstitute.com/ham">WBØOEW</a>
+
+
+
+</p></body></html>
