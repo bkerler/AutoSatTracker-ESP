@@ -1,0 +1,6 @@
+#!/bin/bash
+# run preppage to update html portions in files with web content
+
+./preppage.pl ast.html 111111111111111111111111111111 222222222222222222222222222222 Webpage.cpp
+./preppage.pl ask.html 333333333333333333333333333333 444444444444444444444444444444 AskWiFi.cpp
+
