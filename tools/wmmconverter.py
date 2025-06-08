@@ -4,7 +4,7 @@ import os
 def main():
     wmm_table=[]
     if not os.path.exists("WMM.COF"):
-        print("Please copy latest WMM.COF from https://www.ngdc.noaa.gov/geomag/WMM/soft.shtml here.")
+        print("Please copy latest WMM.COF from https://www.ncei.noaa.gov/products/world-magnetic-model/wmm-coefficients here.")
         exit(0)
     with open("WMM.COF","r") as rf:
         header=rf.readline()

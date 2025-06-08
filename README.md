@@ -114,12 +114,12 @@ code was ported from a quick and dirty Python implementation of my own,
 and retains a bit of the object orientation that I imposed in that code.
 
 
-## Additional tools + modifications by B. Kerler (c) 2019
+## Additional tools + modifications by B. Kerler (c) 2019-2025
 
 - Make sure to update both sun.h and wmm.h regulary
 
 - To update wmm.h, download WMM.COF from [https://www.ngdc.noaa.gov/geomag/WMM/soft.shtml](https://www.ncei.noaa.gov/products/world-magnetic-model/wmm-coefficients) and use tools/wmmconverter.py
-  to convert to wmm.h. Next update needs to be done End of December 2020
+  to convert to wmm.h. Next update needs to be done end of December 2029
 
 - The sun coefficients need to be updated in approx. 2030
 
